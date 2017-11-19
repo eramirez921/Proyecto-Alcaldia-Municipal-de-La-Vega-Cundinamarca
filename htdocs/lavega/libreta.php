@@ -10,7 +10,7 @@
 		
 		
 		
-		<!-- limpiar la caja de texto para la búsqueda -->
+		<!-- refresca la caja de texto para que cuando cargue la pagina nuevamente el  usuario pueda ingresar sus datos -->
 		<script type="text/javascript">
 			function clearText(field){
 			
@@ -127,8 +127,8 @@
 			    return esValido;
 			  }
 			
-			//Milena
-			$( "#cuadroDeDialogo" ).dialog({
+			//Milena -cuadro de dialogo
+				$( "#cuadroDeDialogo" ).dialog({
 			    
 			 autoOpen: false, // Impedir que se abra automaticamente al recargar la página
 			    resizable: false, // Impedir que el cuadro de dialogo se pueda re-ajustar manualmente
@@ -370,7 +370,7 @@
 							</td>
 						</tr>
 					</table>
-					<!-- Allow form submission with keyboard without duplicating the dialog button --> /*Permitir el envío de formularios con el teclado sin duplicar el botón de diálogo/*
+					<!-- Allow form submission with keyboard without duplicating the dialog button -->
 					<input type="submit" tabindex="-1" style="position:absolute;display:none;">
 				</fieldset>
 			</form>
