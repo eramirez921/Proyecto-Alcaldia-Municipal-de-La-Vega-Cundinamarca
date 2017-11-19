@@ -370,7 +370,7 @@
 							</td>
 						</tr>
 					</table>
-					<!-- Allow form submission with keyboard without duplicating the dialog button -->
+					<!-- Allow form submission with keyboard without duplicating the dialog button --> /*Permitir el envío de formularios con el teclado sin duplicar el botón de diálogo/*
 					<input type="submit" tabindex="-1" style="position:absolute;display:none;">
 				</fieldset>
 			</form>
