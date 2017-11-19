@@ -27,7 +27,7 @@ USE `lavega`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `libretadireccion`
+-- Table structure for table `libretadireccion`/*Estructura de tablas*/
 --
 
 CREATE TABLE `libretadireccion` (
