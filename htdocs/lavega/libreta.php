@@ -10,7 +10,7 @@
 		
 		
 		
-		<!-- refresca la caja de texto para que cuando cargue la pagina nuevamente el  usuario pueda ingresar sus datos -->
+		<!-- limpiar la caja de texto para la búsqueda -->
 		<script type="text/javascript">
 			function clearText(field){
 			
@@ -127,8 +127,8 @@
 			    return esValido;
 			  }
 			
-			//Milena -cuadro de dialogo
-				$( "#cuadroDeDialogo" ).dialog({
+			//Milena
+			$( "#cuadroDeDialogo" ).dialog({
 			    
 			 autoOpen: false, // Impedir que se abra automaticamente al recargar la página
 			    resizable: false, // Impedir que el cuadro de dialogo se pueda re-ajustar manualmente
@@ -163,7 +163,7 @@
 			<div id="templatemo_header">
 				<div id="site_title" style="float: left;">
 					<h1>
-						<a href="#">La Vega - Cundinamarca</a>
+						<a href="index.php">La Vega - Cundinamarca</a>
 					</h1>
 				</div>
 				<div id="template_header_user" style="color: #000000; float:right;margin-top:-2%; display:none;">
