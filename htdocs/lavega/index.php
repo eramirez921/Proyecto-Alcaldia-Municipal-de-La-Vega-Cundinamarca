@@ -1,4 +1,5 @@
 <?php
+include("scripts_php/verificar.php");
   if(isset($_COOKIE['contador']))
   { 
     setcookie('contador', $_COOKIE['contador'] + 1, time() + 365 * 24 * 60 * 60); // Vence en un año 
@@ -37,6 +38,16 @@
 		<script src="https://code.jquery.com/ui/1.8.2/jquery-ui.min.js"></script>
 		<link rel="stylesheet" href="https://code.jquery.com/ui/1.8.2/themes/smoothness/jquery-ui.css" />
 		<script type="text/javascript" src="js/validacionespagina.js"></script>
+		
+		<!-- Scripts y estilos para el boton visible al iniciar sesion-->
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/jquery.scrollgress.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="assets/js/main.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		
 		<style>
 			.TipDeValidacion { border: 1px solid transparent; padding: 0.3em; }
 		</style>
@@ -171,7 +182,7 @@
 	</head>
 	<body>
 <?php
-include("scripts_php/verificar.php");
+//include("scripts_php/verificar.php");
   if(isset($_COOKIE['usuarioactual']))
   { 
     // Caduca en un año 
@@ -192,29 +203,29 @@ include("scripts_php/verificar.php");
 
 	
 		<div id="templatemo_wrapper" style="padding-top:0; margin-top: -2%">
-			<div id="templatemo_header">
+			<div id="templatemo_header" style="margin-top: 6%">
 				<div id="site_title" style="float: left;">
 					<h1>
-						<a href="#">La Vega - Cundinamarca</a>
+						<a href="index.php">La Vega - Cundinamarca</a>
 					</h1>
 				</div>
-				<div id="template_header_user" style="color: #000000; float:right;margin-top:-2%;">
-				Bienvenido <?php echo $mensaje; ?> 
-				
-				</div>
-				<div id="template_header_counter" style="color: #000000; float:right; margin-top:0.5%;">
+				<div id="template_header_counter" style="color: #000000; float:right; margin-top:0;*/">
 				<?php echo $mensajecont; ?> 
 				</div>
-				<div id="template_header_login" style="float:right; margin-top:3%; margin-right:-13%;">
+				<div id="template_header_login" style="float:right; margin-top:4%; margin-right:-17%;">
 					<!-- <a href="sesion.php" style="width:auto">Inicio Sesion</a> -->
-					<form action="sesion.php" method="post">
-						<input type="submit" value="Inicio Sesion">
+					<form id="frmActionIniciarSesion" name="frmActionIniciarSes" action="sesion.php" method="post">
+						<input id="btnIniciarSes" name="btnIniciar" type="submit" value="Inicio Sesion" style="display:block">
+					</form>
+					<form id="frmActionFinalizaSesion" name="frmActionFinalizaSes" action="scripts_php/destruir.php" method="post">
+						<input id="btnFinalizSes" name="btnFinaliz" type="submit" value="Cerrar Sesion" style="display:block">
 					</form>
 				</div>
+				
 				<div class="cleaner"></div>
 			</div>
 			<!-- end of header -->
-			<div id="templatemo_menu" class="ddsmoothmenu" style="margin-top:-9%; margin-left: 19%">
+			<div id="templatemo_menu" class="ddsmoothmenu" style="margin-top:-6%; margin-left: 19%">
 				<!-- menu superior -->
 				<ul>
 					<li>
@@ -266,6 +277,41 @@ include("scripts_php/verificar.php");
 				<br style="clear: left" />
 			</div>
 			<!-- end of templatemo_menu -->
+			
+			<div id="page-wrapper">
+					<div id="header" class="alt" style="position:relative; margin-top:-2%;margin-left:1.5%">
+						<nav id="navVisitante" name="nav_visitante" style="position:relative;">
+							<ul>
+								<li id="li_Bienvenido">
+									<div id="texto" style="color:#000000">
+										Bienvenido <?php echo $mensaje; ?>
+									</div>
+								
+								</li>
+							</ul>
+						</nav>
+						<nav id="nav" name="nav_usuario" style="position:relative;">
+							<ul>
+								<li id="li_Bienvenido">
+									<div id="texto" style="color:#000000">
+										Bienvenido <?php echo $mensaje; ?>
+									</div>
+								
+								</li>
+								<li id="li_botonBienvenido" name="li_name_botonBienvenido">
+									<a href="#" class="icon fa-angle-down"><img src="images/iconosesioniniciada.png" alt="" title="Opciones" /></a>
+									<ul>
+										<li><a href="#">Perfil</a></li>
+										<li><a href="#">Informes</a></li>
+										<li><a href="#">Normatividad</a></li>
+										<li><a href="#">Correo</a></li>
+									</ul>
+								</li>
+								
+							</ul>
+						</nav>
+					</div>
+				</div>
 			
 			<!-- Milena -->
 			<div id="templatemo_slider">
@@ -422,7 +468,7 @@ include("scripts_php/verificar.php");
 		<!-- Betsy  -->
 		<div id="cuadroDeDialogo" title="Ingresar los datos">
 			<p class="TipDeValidacion">Todos los campos son obligatorios.</p>
-			<form>
+			<form id="frmCuadroDialogo" name="frmCuadroDialogo">
 				<fieldset>
 					<table>
 						<tr>
@@ -455,5 +501,25 @@ include("scripts_php/verificar.php");
 				</fieldset>
 			</form>
 		</div>
+<?php
+//include("scripts_php/verificar.php");
+  
+    if(isset($_SESSION['ses_login']))
+	{
+		echo "<script>document.getElementsByName('frmActionIniciarSes')[0].style.display = 'none';</script>";
+		echo "<script>document.getElementsByName('frmActionFinalizaSes')[0].style.display = 'block';</script>";
+		echo "<script>document.getElementsByName('nav_visitante')[0].style.display = 'none';</script>";
+		echo "<script>document.getElementsByName('nav_usuario')[0].style.display = 'block';</script>";
+		
+	}
+	else
+	{
+		echo "<script>document.getElementsByName('frmActionIniciarSes')[0].style.display = 'block';</script>";
+		echo "<script>document.getElementsByName('frmActionFinalizaSes')[0].style.display = 'none';</script>";
+		echo "<script>document.getElementsByName('nav_visitante')[0].style.display = 'block';</script>";
+		echo "<script>document.getElementsByName('nav_usuario')[0].style.display = 'none';</script>";
+	}
+
+?> 
 	</body>
 </html>
