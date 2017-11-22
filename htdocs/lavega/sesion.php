@@ -160,7 +160,7 @@
 			<div id="templatemo_header">
 				<div id="site_title" style="float: left;">
 					<h1>
-						<a href="#">La Vega - Cundinamarca</a>
+						<a href="index.php">La Vega - Cundinamarca</a>
 					</h1>
 				</div>
 				<div class="cleaner"></div>
@@ -229,7 +229,7 @@
 									<label for="txt_login_lbl" style="color:#000000;">Login</label>
 								</td>
 								<td>
-									<input type="text" name="txt_login" id="txt_login_lbl" />
+									<input type="text" name="txt_login" id="txt_login_lbl" required />
 								</td>
 							</tr>
 							<tr>
@@ -237,7 +237,7 @@
 									<label for="txt_password_lbl" style="color:#000000">Password</label>
 								</td>
 								<td>
-									<input type="password" name="txt_password" id="txt_password_lbl" />
+									<input type="password" name="txt_password" id="txt_password_lbl" required />
 								</td>
 							</tr>
 							<tr>
